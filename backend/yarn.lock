@@ -1196,6 +1196,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/client@npm:4.10.1":
+  version: 4.10.1
+  resolution: "@prisma/client@npm:4.10.1"
+  dependencies:
+    "@prisma/engines-version": "npm:4.10.1-2.aead147aa326ccb985dcfed5b065b4fdabd44b19"
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: ff6a8ff74a8cc3a7f2415dd92f36ad4ccc8ce42bee78cd7c3351702f9b10fc6db67a4cea2791359b57adcdc04a353b3ac9f06ace1316e473854a7ba599a2507f
+  languageName: node
+  linkType: hard
+
+"@prisma/engines-version@npm:4.10.1-2.aead147aa326ccb985dcfed5b065b4fdabd44b19":
+  version: 4.10.1-2.aead147aa326ccb985dcfed5b065b4fdabd44b19
+  resolution: "@prisma/engines-version@npm:4.10.1-2.aead147aa326ccb985dcfed5b065b4fdabd44b19"
+  checksum: 5b4e1a4338a3f39e5e339714c7c950dfac9045edf435599434787d905bd79b9be904aab5540378fd70647481f7427af8159b364038ad41486d4f850e7c0cc7f4
+  languageName: node
+  linkType: hard
+
 "@prisma/engines@npm:4.10.1":
   version: 4.10.1
   resolution: "@prisma/engines@npm:4.10.1"
@@ -2486,6 +2507,7 @@ __metadata:
     "@nestjs/platform-express": "npm:^8.0.0"
     "@nestjs/schematics": "npm:^8.0.0"
     "@nestjs/testing": "npm:^8.0.0"
+    "@prisma/client": "npm:4.10.1"
     "@types/express": "npm:^4.17.13"
     "@types/jest": "npm:27.0.2"
     "@types/node": "npm:^18.14.1"
