@@ -995,6 +995,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@nestjs/config@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "@nestjs/config@npm:2.3.1"
+  dependencies:
+    dotenv: "npm:16.0.3"
+    dotenv-expand: "npm:10.0.0"
+    lodash: "npm:4.17.21"
+    uuid: "npm:9.0.0"
+  peerDependencies:
+    "@nestjs/common": ^7.0.0 || ^8.0.0 || ^9.0.0
+    reflect-metadata: ^0.1.13
+    rxjs: ^6.0.0 || ^7.2.0
+  checksum: 29d602e7a66a2b3f98ef95bd52ba03dae4a5bf2ee32c93a9be510b0e3a46fabdc8ae272a0cb53496a367fd6d5c5af3bd85fe466767a02aecb38a5baa52ce3cef
+  languageName: node
+  linkType: hard
+
 "@nestjs/core@npm:^8.0.0":
   version: 8.2.6
   resolution: "@nestjs/core@npm:8.2.6"
@@ -2502,6 +2518,7 @@ __metadata:
   dependencies:
     "@nestjs/cli": "npm:^8.0.0"
     "@nestjs/common": "npm:^8.0.0"
+    "@nestjs/config": "npm:^2.3.1"
     "@nestjs/core": "npm:^8.0.0"
     "@nestjs/graphql": "npm:9.1.2"
     "@nestjs/platform-express": "npm:^8.0.0"
@@ -3351,6 +3368,20 @@ __metadata:
   dependencies:
     webidl-conversions: "npm:^5.0.0"
   checksum: fdf54dfa44e3e5c6ace1a762a3ba5898c45c12fcb5e8df3eb7cb8702c3db314922211f3cf36f21343e48cdd9db931ea8fbb8ddd3653a0a2e6753754381cf3e89
+  languageName: node
+  linkType: hard
+
+"dotenv-expand@npm:10.0.0":
+  version: 10.0.0
+  resolution: "dotenv-expand@npm:10.0.0"
+  checksum: bbe61cc154763b3fc2ef5ec6422b357c8fea706932e4be585c6a8f3af2a1508f87f2badc4beb24af2913520580e754763c58769ddf667312476eb16a7c1bed34
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:16.0.3":
+  version: 16.0.3
+  resolution: "dotenv@npm:16.0.3"
+  checksum: abce82d99b45e2ebbd42625a78cadbfafe03072c15e6538b6a3a7ed204b6e091c0de929dd09231edc61f78afbdcd5b8a2f21b9e933e8ab27d75bee865a0e58c9
   languageName: node
   linkType: hard
 
@@ -7735,6 +7766,15 @@ __metadata:
   bin:
     uuid: dist/bin/uuid
   checksum: 236a12282c6fa32f326aa1b6d5699a843572e9ab7de84a1507a6b7c315fdcf55bf6ed333fd37d35c5c656f4cb96af998844e1c8cae281c442a1ec3b66df62962
+  languageName: node
+  linkType: hard
+
+"uuid@npm:9.0.0":
+  version: 9.0.0
+  resolution: "uuid@npm:9.0.0"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: e1f76aff372e430bb129157360fd4cd3b393411b245604ea78e178a822ab7874ec2ebecec03ce94422b0b80bbd24733c6fa1df166c9cbad5086ef4b4843140bb
   languageName: node
   linkType: hard
 
