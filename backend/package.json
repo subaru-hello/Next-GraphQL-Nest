@@ -21,16 +21,22 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
+    "@google-cloud/logging-winston": "^5.3.0",
     "@nestjs/common": "^8.0.0",
+    "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^8.0.0",
     "@nestjs/graphql": "9.1.2",
     "@nestjs/platform-express": "^8.0.0",
-    "@prisma/client": "4.10.1",
+    "@prisma/client": "^4.10.1",
     "apollo-server-express": "^3.6.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.0",
     "graphql": "^15",
+    "nest-winston": "^1.8.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
-    "rxjs": "^7.2.0"
+    "rxjs": "^7.2.0",
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
@@ -57,7 +63,7 @@
     "typescript": "^4.9.5"
   },
   "prisma": {
-     "seed": "ts-node prisma/seed.ts"
+    "seed": "ts-node prisma/seed.ts"
   },
   "jest": {
     "moduleFileExtensions": [

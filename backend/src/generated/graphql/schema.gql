@@ -8,5 +8,9 @@ type PostModel {
 }
 
 type Query {
+  databaseUrl: String!
   posts: [PostModel!]
+  prismaPosts: [PostModel!]
+  testConfiguration: String!
+  testPort: Float!
 }
