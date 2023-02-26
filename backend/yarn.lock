@@ -1212,7 +1212,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/client@npm:4.10.1":
+"@prisma/client@npm:^4.10.1":
   version: 4.10.1
   resolution: "@prisma/client@npm:4.10.1"
   dependencies:
@@ -2531,7 +2531,7 @@ __metadata:
     "@nestjs/platform-express": "npm:^8.0.0"
     "@nestjs/schematics": "npm:^8.0.0"
     "@nestjs/testing": "npm:^8.0.0"
-    "@prisma/client": "npm:4.10.1"
+    "@prisma/client": "npm:^4.10.1"
     "@types/express": "npm:^4.17.13"
     "@types/jest": "npm:27.0.2"
     "@types/node": "npm:^18.14.1"
