@@ -8,5 +8,8 @@ type PostModel {
 }
 
 type Query {
+  databaseUrl: String!
   posts: [PostModel!]
+  testConfiguration: String!
+  testPort: Float!
 }
