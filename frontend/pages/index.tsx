@@ -13,6 +13,7 @@ type Props = {
 }
 
 const Home: NextPage<Props> = (props) => {
+  
   return (
     <div className={styles.container}>
       <Head>
@@ -61,10 +62,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 		`
    
 		const result = await client.query(postsQuery, {}).toPromise();
-  
+    const posts = result?.data?.posts ?? [];
   return {
     props: {
-      posts: result.data.posts,
+      posts: posts,
     },
   };
  } catch (e) {
