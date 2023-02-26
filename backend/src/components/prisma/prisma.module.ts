@@ -1,6 +1,3 @@
-/**
- * fork:  https://github.com/notiz-dev/nestjs-prisma
- */
 import { DynamicModule, Global, Module, Provider } from '@nestjs/common';
 import {
   PrismaModuleAsyncOptions,
