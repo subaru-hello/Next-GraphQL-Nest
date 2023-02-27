@@ -3,7 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { urqlClient } from "../src/libs/gql-requests";
-import { gql } from "urql";
+import { PostIndexPageDocument } from '../src/graphql/generated.graphql'
 
 type Props = {
   posts: {
@@ -52,16 +52,8 @@ const Home: NextPage<Props> = (props) => {
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   try {
     const client = await urqlClient();
-    const postsQuery = gql`
-      query {
-        posts {
-					id
-					title
-				}
-			}
-		`
+    const result = await client.query(PostIndexPageDocument, {}).toPromise();
    
-		const result = await client.query(postsQuery, {}).toPromise();
     const posts = result?.data?.posts ?? [];
   return {
     props: {
