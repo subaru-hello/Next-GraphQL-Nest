@@ -12,8 +12,8 @@ export class PostsResolver {
     private readonly prisma: PrismaService,
   ) {}
 
-  @Query(() => [PostModel], { name: 'posts', nullable: true })
-  async getPosts() {
+  @Query(() => [PostModel], { name: 'testPosts', nullable: true })
+  async getFixedPosts() {
     return [
       {
         id: '1',
@@ -25,6 +25,15 @@ export class PostsResolver {
       },
     ];
   }
+
+	@Query(() => [PostModel], { name: 'posts', nullable: true })
+	async getPosts(){
+	  return this.prisma.post.findMany({
+		  orderBy: {
+			  publishDate: 'desc',
+			}
+		})
+	}
 
   @Query(() => String)
   testConfiguration(): any {

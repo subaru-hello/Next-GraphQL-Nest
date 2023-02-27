@@ -13,4 +13,5 @@ type Query {
   prismaPosts: [PostModel!]
   testConfiguration: String!
   testPort: Float!
+  testPosts: [PostModel!]
 }
