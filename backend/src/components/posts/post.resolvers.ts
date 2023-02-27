@@ -3,7 +3,7 @@ import { PrismaService } from './../prisma/prisma.service';
 import { ConfigService } from '@nestjs/config';
 import { Args, Query, Resolver } from '@nestjs/graphql';
 import { PostModel } from './interfaces/post.model';
-
+import { GetPostsArgs } from './interfaces/get-posts-connection.args';
 @Resolver((of) => PostModel)
 export class PostsResolver {
   constructor(
@@ -26,14 +26,22 @@ export class PostsResolver {
     ];
   }
 
-	@Query(() => [PostModel], { name: 'posts', nullable: true })
-	async getPosts(){
-	  return this.prisma.post.findMany({
-		  orderBy: {
-			  publishDate: 'desc',
-			}
-		})
-	}
+  @Query(() => [PostModel], { name: 'posts', nullable: true })
+  async getPosts(@Args() args: GetPostsArgs) {
+    return this.prisma.post.findMany({
+      where: {
+        type: args.type
+          ? {
+              in: args.type,
+            }
+          : undefined,
+        published: true,
+      },
+      orderBy: {
+        publishDate: 'desc',
+      },
+    });
+  }
 
   @Query(() => String)
   testConfiguration(): any {
