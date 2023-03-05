@@ -1,0 +1,44 @@
+steps:
+  - id: build-backend
+    name: "docker"
+    args:
+      - build
+      - --file=Dockerfile
+      - "--tag=$_ARTIFACT_REPOSITORY_IMAGE_NAME:$SHORT_SHA"
+      - "--tag=$_ARTIFACT_REPOSITORY_IMAGE_NAME:latest"
+      - --cache-from=$_ARTIFACT_REPOSITORY_IMAGE_NAME:latest
+      - .
+    dir: "next-graphql-nest/backend"
+  - id: push-backend
+    name: "docker"
+    args:
+      - push
+      - --all-tags
+      - $_ARTIFACT_REPOSITORY_IMAGE_NAME
+    dir: "next-graphql-nest/backend"
+    waitFor: ["build-backend"]
+  - id: "apply-migrations"
+    name: "gcr.io/google-appengine/exec-wrapper"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - "/buildstep/execute.sh -i $_ARTIFACT_REPOSITORY_IMAGE_NAME:$SHORT_SHA -e DATABASE_URL=$$DATABASE_URL -s $_CLOUDSQL_INSTANCE_FULL_NAME -- yarn prisma migrate deploy"
+    secretEnv: ["DATABASE_URL"]
+    dir: "next-graphql-nest/backend"
+    waitFor: ["push-backend"]
+timeout: 2000s
+substitutions:
+  _REGION: by-terraform
+  _CLOUDSQL_INSTANCE_FULL_NAME: by-terraform
+  _ARTIFACT_REPOSITORY_IMAGE_NAME: by-terraform
+  _SERVICE_ACCOUNT: by-terraform
+  # _CONTENTS_BUCKET_NAME: by-terraform
+availableSecrets:
+  secretManager:
+    - versionName: projects/$PROJECT_ID/secrets/NEST_GRAPH_NEXT_DATABASE_URL/versions/latest
+      env: DATABASE_URL
+
+# ビルド結果に生成したイメージ情報を表示する
+# https://cloud.google.com/build/docs/building/build-containers
+images:
+  - $_ARTIFACT_REPOSITORY_IMAGE_NAME:$SHORT_SHA
